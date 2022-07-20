@@ -17,13 +17,14 @@ mongoose.connect(process.env.MONGO_URI, {
 
 
 // middleware
-app.use(morgan('morgan'))
+app.use(morgan('morgan'));
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 
 
 // routes
-
+const productsRoute = require('./routes/products');
+app.use('/', productsRoute);
 
 
 // port
