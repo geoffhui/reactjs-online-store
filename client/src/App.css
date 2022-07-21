@@ -1,0 +1,26 @@
+/* ProductDisplay component */
+
+.product-display-container {
+   margin: 0;
+   position: absolute;
+   height: 60%;
+   width: 16%;
+   border: 1px solid black;
+   background-color: aliceblue;
+}
+
+.product-display-image {
+   position: relative;
+   margin: 5%;
+   width: 90%;
+   height: 60%;
+   background-color: rgb(230, 236, 255);
+}
+
+
+
+/* Reusable styling */
+
+.fs-14px {
+   font-size: 14px;
+}
