@@ -5,15 +5,20 @@ import ProductDisplay from '../components/ProductDisplay';
 const Products = () => {
    return (
       <div className='container-fluid'>
-         <div className='row mw-100'>
+         <div className='row'>
             <Navbar />
          </div>
-         <div className='row my-5 mx-3'>
-            <div className='col-2 mx-3'><ProductDisplay /></div>
-            <div className='col-2 mx-3'><ProductDisplay /></div>
-            <div className='col-2 mx-3'><ProductDisplay /></div>
-            <div className='col-2 mx-3'><ProductDisplay /></div>
-            <div className='col-2 mx-3'><ProductDisplay /></div>
+         <div className='row my-5 justify-content-center'>
+            <div className='col-6 col-sm-6 col-md-4 col-lg-2 my-3'><ProductDisplay /></div>
+            <div className='col-6 col-sm-6 col-md-4 col-lg-2 my-3'><ProductDisplay /></div>
+            <div className='col-6 col-sm-6 col-md-4 col-lg-2 my-3'><ProductDisplay /></div>
+            <div className='col-6 col-sm-6 col-md-4 col-lg-2 my-3'><ProductDisplay /></div>
+            <div className='col-6 col-sm-6 col-md-4 col-lg-2 my-3'><ProductDisplay /></div>
+            <div className='col-6 col-sm-6 col-md-4 col-lg-2 my-3'><ProductDisplay /></div>
+            <div className='col-6 col-sm-6 col-md-4 col-lg-2 my-3'><ProductDisplay /></div>
+            <div className='col-6 col-sm-6 col-md-4 col-lg-2 my-3'><ProductDisplay /></div>
+            <div className='col-6 col-sm-6 col-md-4 col-lg-2 my-3'><ProductDisplay /></div>
+            <div className='col-6 col-sm-6 col-md-4 col-lg-2 my-3'><ProductDisplay /></div>
          </div>
       </div>
    );
