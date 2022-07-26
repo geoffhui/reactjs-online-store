@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
    product_sku: {
       type: String,
-      required: true
+      required: true,
+      unique: true
    },
    product_name: {
       type: String,
@@ -28,7 +29,7 @@ const productSchema = new mongoose.Schema({
       required: true,
       default: 'none'
    },
-   discount__value: {
+   discount_value: {
       type: Number,
       required: true,
       default: 0
@@ -67,7 +68,8 @@ const productSchema = new mongoose.Schema({
    },
    keywords: {
       type: [String],
-      required: false
+      required: true,
+      default: []
    }
 })
 
