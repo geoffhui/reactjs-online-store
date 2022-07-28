@@ -1,21 +1,31 @@
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+   .product-display-container {
+      max-width: 270px;
+   }
+}
+
+
+
 /* ProductDisplay component */
 
 .product-display-container {
-   margin: 0;
+   margin: 0 auto;
    border: 1px solid black;
+   padding: 10px;
    background-color: aliceblue;
 }
 
 .product-display-image {
-   margin: 5%;
-   width: 90%;
-   height: 60%;
+   max-width: 100%;
    background-color: rgb(230, 236, 255);
 }
 
-.abc {
-   margin-top: 30%;
+.product_display_default_size {
+   max-height: 250px;
+   max-width: 100%;
 }
+
+
 
 /* Reusable styling */
 
