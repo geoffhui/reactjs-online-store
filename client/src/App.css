@@ -1,6 +1,5 @@
-/* Styling for devices between 0px and 600px */
-
-@media only screen and (min-width: 0px) and (max-width: 600px) {
+/* Styling for device sizes between 0px and 768px */
+@media only screen and (min-width: 0px) and (max-width: 768px) {
    .product-display-container {
       max-width: 270px;
    }
@@ -27,6 +26,16 @@
    max-width: 100%;
 }
 
+.bg-sale {
+   background-color: rgb(54, 255, 54);
+   float: right;
+   font-size: 12px;
+   position: absolute;
+   left: 70%;
+   top: 5px;
+   width: 26%;
+}
+
 
 
 /* Reusable styling */
@@ -35,6 +44,10 @@
    font-size: 14px;
 }
 
-.bg-sale {
-   background-color: rgb(54, 255, 54);
+.pos-rel {
+   position: relative;
+}
+
+.color-grey {
+   color: grey;
 }

@@ -10,15 +10,14 @@ const ProductDisplay = ({ product }) => {
             <p className="text-center">{ product.product_name }</p>
             {
                product.is_on_sale ? 
-                  <div className="text-center">
+                  <div className="text-center pos-rel">
                      <p className="text-danger my-0">{ displaySalePrice(product.price, product.discount_type, product.discount_value) }</p>
-                     <del className="fs-14px">{ product.price }</del>
-                     <p className="text-success bg-sale m-0">{ display_sale(product.discount_type, product.discount_value) }</p>
+                     <del className="fs-14px color-grey">{ product.price }</del> 
+                     <p className="text-success bg-sale m-0 bg-sale px-2">{ display_sale(product.discount_type, product.discount_value) }</p>
                   </div>
                   :
                   <div className="text-center">
                      <p className="my-0">{ product.price }</p>
-                     <br />
                      <br />
                   </div>
             }
