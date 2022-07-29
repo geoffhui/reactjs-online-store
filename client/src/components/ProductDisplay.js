@@ -1,5 +1,5 @@
 import React from "react";
-import { displaySalePrice } from '../functions/functions'
+import { displaySalePrice, display_sale } from '../functions/functions'
 
 
 const ProductDisplay = ({ product }) => {
@@ -10,16 +10,19 @@ const ProductDisplay = ({ product }) => {
             <p className="text-center">{ product.product_name }</p>
             {
                product.is_on_sale ? 
-                  <div className="fs-14px text-center">
-                     <del>{ product.price }</del>
-                     <p>{ displaySalePrice(product.price, product.discount_type, product.discount_value) }</p>
+                  <div className="text-center">
+                     <p className="text-danger my-0">{ displaySalePrice(product.price, product.discount_type, product.discount_value) }</p>
+                     <del className="fs-14px">{ product.price }</del>
+                     <p className="text-success bg-sale">{ display_sale(product.discount_type, product.discount_value) }</p>
                   </div>
                   :
-                  <p className="fs-14px text-center">{ product.price }</p>
+                  <div className="text-center">
+                     <p className="my-0">{ product.price }</p>
+                     <br />
+                     <br />
+                     <p></p>
+                  </div>
             }
-            {/* <p className="fs-14px text-center">{ product.price }</p> */}
-            {/* <p className="fs-14px text-center">$7.99</p> */}
-            {/* <p className="fs-14px text-center">Out of Stock</p> */}
          </div>
       </div>
    );

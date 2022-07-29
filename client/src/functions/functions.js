@@ -4,7 +4,7 @@
 // PARAM discount_value: int
 export const displaySalePrice = (price, discount_type, discount_value) => {
    var final_price = price;
-   switch(discount_type) {
+   switch (discount_type) {
       case 'percent':
          final_price = Math.round((1 - (discount_value / 100)) * price)
          break
@@ -15,12 +15,24 @@ export const displaySalePrice = (price, discount_type, discount_value) => {
          break
    }
 
-   return format_2_decimal_places(final_price)
+   final_price = final_price.toLocaleString('en-US', { style: 'currency', currency: 'USD'})
+
+   return final_price
 }
 
 
-// Formats a number to USD currency
-// PARAM number: int
-export const format_2_decimal_places = (number) => {
-   return number.toLocaleString('en-US', { style: 'currency', currency: 'USD'})
+export const display_sale = (discount_type, discount_value) => {
+   var discount_text = ''
+   switch (discount_type) {
+      case 'percent':
+         discount_text = `${discount_value}% OFF!`
+         break
+      case 'amount':
+         discount_text = `SAVE ${discount_value.toLocaleString('en-US', { style: 'currency', currency: 'USD'})}!`
+         break
+      default:
+         break
+   }
+
+   return discount_text
 }
