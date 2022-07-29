@@ -6,7 +6,7 @@ export const displaySalePrice = (price, discount_type, discount_value) => {
    var final_price = price;
    switch (discount_type) {
       case 'percent':
-         final_price = Math.round((1 - (discount_value / 100)) * price)
+         final_price = (1 - (discount_value / 100)) * price
          break
       case 'amount':
          final_price = price - discount_value
