@@ -11,9 +11,9 @@ const ProductDisplay = ({ product }) => {
             {
                product.is_on_sale ? 
                   <div className="text-center pos-rel">
-                     <p className="text-danger my-0">{ displaySalePrice(product.price, product.discount_type, product.discount_value) }</p>
-                     <del className="fs-14px color-grey">{ product.price }</del> 
-                     <p className="text-success bg-sale m-0 bg-sale px-2">{ display_sale(product.discount_type, product.discount_value) }</p>
+                     <p className="my-0">{ displaySalePrice(product.price, product.discount_type, product.discount_value) }</p>
+                     <del className="fs-14px text-secondary">{ product.price }</del> 
+                     <p className="bg-sale m-0 bg-sale px-2 text-white">{ display_sale(product.discount_type, product.discount_value) }</p>
                   </div>
                   :
                   <div className="text-center">

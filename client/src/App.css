@@ -27,7 +27,7 @@
 }
 
 .bg-sale {
-   background-color: rgb(54, 255, 54);
+   background-color: #2c7cc1;
    float: right;
    font-size: 12px;
    position: absolute;
@@ -48,6 +48,6 @@
    position: relative;
 }
 
-.color-grey {
-   color: grey;
+.bg-color-0059a7 {
+   background-color: #0059a7;
 }
