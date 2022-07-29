@@ -1,7 +1,7 @@
 // Calculates and displays sale price
-// PARAM price: float
-// PARAM discount_type: Enum - 'percent' or 'amount'
-// PARAM discount_value: int
+// PARAM price: Float
+// PARAM discount_type: Enum - 'none', 'percent' or 'amount'
+// PARAM discount_value: Int
 export const displaySalePrice = (price, discount_type, discount_value) => {
    var final_price = price;
    switch (discount_type) {
@@ -21,6 +21,9 @@ export const displaySalePrice = (price, discount_type, discount_value) => {
 }
 
 
+// Displays text depending on value of discount_type
+// PARAM discount_type: String
+// PARAM discount_value: Float
 export const display_sale = (discount_type, discount_value) => {
    var discount_text = ''
    switch (discount_type) {

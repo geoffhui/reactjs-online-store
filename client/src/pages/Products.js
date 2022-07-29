@@ -15,7 +15,7 @@ const Products = ({ products }) => {
             { Object.keys(products).map((key, index) => {
                return(
                   <div className='col-xs-12 col-sm-6 col-md-4 col-lg-3 my-3 text-center' key={ uuidv4() }>
-                     <ProductDisplay product={products[key]} />
+                     <ProductDisplay product={ products[key] } />
                   </div>
                )
             })}
