@@ -13,14 +13,13 @@ const ProductDisplay = ({ product }) => {
                   <div className="text-center">
                      <p className="text-danger my-0">{ displaySalePrice(product.price, product.discount_type, product.discount_value) }</p>
                      <del className="fs-14px">{ product.price }</del>
-                     <p className="text-success bg-sale">{ display_sale(product.discount_type, product.discount_value) }</p>
+                     <p className="text-success bg-sale m-0">{ display_sale(product.discount_type, product.discount_value) }</p>
                   </div>
                   :
                   <div className="text-center">
                      <p className="my-0">{ product.price }</p>
                      <br />
                      <br />
-                     <p></p>
                   </div>
             }
          </div>
