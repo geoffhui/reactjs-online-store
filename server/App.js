@@ -26,6 +26,9 @@ app.use(express.json());
 const productsRoute = require('./routes/products');
 app.use('/', productsRoute);
 
+const registerRoute = require('./routes/register');
+app.use('/', registerRoute);
+
 
 // port
 const port = process.env.PORT || 8080;
