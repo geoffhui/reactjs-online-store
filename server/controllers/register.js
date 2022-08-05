@@ -2,21 +2,20 @@ const user = require('../models/userSchema');
 const bcrypt = require('bcrypt');
 
 
-exports.postRegister = async (res, req) => {
-   const user = req.body
+exports.postRegister = async (req, res) => {
+   const userData = req.body
 
-   const takenEmail = await user.findOne({email: user.email})
+   const takenEmail = await user.findOne({email: userData.email})
 
    if (takenEmail) {
       res.json({message: "Email has already been taken"})
    } else {
-      user.password = await bcrypt.hash(req.body.password, 10)
+      userData.password = await bcrypt.hash(req.body.password, 10)
 
-      const dbUser = new user({
-         full_name: user.full_name,
-         email: user.email.toLowerCase(),
-         password: user.password,
-         phone_number: user.phone_number,
+      const dbUser = await new user({
+         full_name: userData.full_name,
+         email: userData.email,
+         password: userData.password,
          restock_notification: false,
          is_guest_account: false,
          is_blocked: false
