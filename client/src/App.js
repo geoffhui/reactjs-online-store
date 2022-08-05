@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import { getProducts } from './functions/requests'
+import Register from './pages/Register';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={ <Home /> } />
           <Route exact path="/products" element={ <Products products={ products }/> } />
+          <Route exact path="/register" element={ <Register /> } />
         </Routes>
       </Router>
     </div>
