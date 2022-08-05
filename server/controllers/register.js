@@ -1,6 +1,6 @@
-const user = require('../models/user');
+const user = require('../models/userSchema');
 const bcrypt = require('bcrypt');
-const { titleCase } = require('../../client/src/functions/functions')
+
 
 exports.postRegister = async (res, req) => {
    const user = req.body
@@ -13,7 +13,7 @@ exports.postRegister = async (res, req) => {
       user.password = await bcrypt.hash(req.body.password, 10)
 
       const dbUser = new user({
-         full_name: titleCase(user.full_name),
+         full_name: user.full_name,
          email: user.email.toLowerCase(),
          password: user.password,
          phone_number: user.phone_number,
