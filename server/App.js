@@ -54,7 +54,7 @@ function verifyJWT(req, res, next) {
 app.get('/getUser', verifyJWT, (req, res) => {
    res.json({
       isLoggedIn: true,
-      name: req.user.full_name,
+      name: req.user.name,
       email: req.user.email
    })
 })

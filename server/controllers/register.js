@@ -13,7 +13,7 @@ exports.postRegister = async (req, res) => {
       userData.password = await bcrypt.hash(req.body.password, 10)
 
       const dbUser = await new user({
-         full_name: userData.full_name,
+         name: userData.name,
          email: userData.email,
          password: userData.password,
          restock_notification: false,

@@ -13,7 +13,7 @@ const Register = () => {
       e.preventDefault()
 
       const user = {
-         full_name: name,
+         name: name,
          email: email,
          password: password
       }
