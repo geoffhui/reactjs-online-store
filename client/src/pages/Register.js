@@ -6,6 +6,7 @@ const Register = () => {
    const [name, setName] = useState('')
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
+   const [customText, setCustomText] = useState('')
    const navigate = useNavigate()
 
    const handleRegister = async (e) => {
@@ -18,6 +19,7 @@ const Register = () => {
       }
 
       await axios.post('http://localhost:8080/register', user)
+         .then(res => setCustomText(res.data.message))
 
       // navigate('/')
    }
@@ -43,7 +45,10 @@ const Register = () => {
 
          <div className='form-group'>
             <button className='btn bg-light mb-4' type='submit'>Register</button>
-            <label className='form-text col-12 text-white mb-4'>Email is already taken</label>
+            { customText !== '' ? 
+               <label className='form-text col-12 text-white mb-4'>{ customText }</label>
+               : null
+            }
          </div>
          </form>
       </div>

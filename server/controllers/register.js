@@ -22,6 +22,6 @@ exports.postRegister = async (req, res) => {
       })
 
       dbUser.save()
-      res.json({message: 'Success'})
+      res.json({message: 'Account has been created'})
    }
 }
