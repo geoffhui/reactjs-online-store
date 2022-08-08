@@ -27,6 +27,7 @@ const Register = () => {
    return (
       <div>
          <h3 className='container w-75 text-start mt-4'>Create An Account</h3>
+         
          <form className='container mt-5 w-75 bg-color-0059a7 rounded-corners' autocomplete='on' onSubmit={event => handleRegister(event)}>
          <div className='form-group'>
             <label className='mt-4 text-light'>Name *</label>
@@ -40,11 +41,12 @@ const Register = () => {
 
          <div className='form-group'>
             <label className='text-light'>Password *</label>
-            <input className='form-control mb-4' 
+            <input 
+               className='form-control mb-4' 
                required 
                type="password" 
-               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-               title="Must contain at least one number, one uppercase letter, and lowercase letter, and at least 8 characters"
+               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+               title="Must contain at least one number, one uppercase letter, and lowercase letter, and at least 8 characters" 
                value={ password } 
                onChange={ e => setPassword(e.target.value) } />
          </div>
