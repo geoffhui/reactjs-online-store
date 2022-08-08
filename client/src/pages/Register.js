@@ -40,7 +40,13 @@ const Register = () => {
 
          <div className='form-group'>
             <label className='text-light'>Password *</label>
-            <input className='form-control mb-4' required type="password" value={ password } onChange={ e => setPassword(e.target.value) } />
+            <input className='form-control mb-4' 
+               required 
+               type="password" 
+               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+               title="Must contain at least one number, one uppercase letter, and lowercase letter, and at least 8 characters"
+               value={ password } 
+               onChange={ e => setPassword(e.target.value) } />
          </div>
 
          <div className='form-group'>
