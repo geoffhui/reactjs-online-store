@@ -27,15 +27,15 @@ const Register = () => {
    return (
       <div>
          <h3 className='container w-75 text-start mt-4'>Create An Account</h3>
-         <form className='container mt-5 w-75 bg-color-0059a7 rounded-corners' onSubmit={event => handleRegister(event)}>
+         <form className='container mt-5 w-75 bg-color-0059a7 rounded-corners' autocomplete='on' onSubmit={event => handleRegister(event)}>
          <div className='form-group'>
             <label className='mt-4 text-light'>Name *</label>
-            <input className='form-control mb-4' required type="text" value={ name } onChange={ e => setName(e.target.value) }/>
+            <input className='form-control mb-4' id='name' required type="text" value={ name } onChange={ e => setName(e.target.value) }/>
          </div>
 
          <div className='form-group'>
             <label className='text-light'>Email *</label>
-            <input className='form-control mb-4' required type="email" value={ email } onChange={ e => setEmail(e.target.value) } />
+            <input className='form-control mb-4' id='email' required type="email" value={ email } onChange={ e => setEmail(e.target.value) } />
          </div>
 
          <div className='form-group'>
