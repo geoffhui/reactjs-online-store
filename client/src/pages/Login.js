@@ -22,14 +22,12 @@ const Login = () => {
    }
 
    useEffect(() => {
-      fetch("http://localhost:8080/getUser", {
+      axios.get("http://localhost:8080/getUser", {
          headers: {
             "x-access-token": localStorage.getItem("token")
          }
-      })
-      .then(res => res.json())
-      .then(data => data.isLoggedIn ? navigate('/') : null)
-   }, [])
+      }).then(res => res.data.isLoggedIn ? navigate('/') : null)
+   }, [navigate])
 
    return (  
       <form onSubmit={ event => handleLogin(event) }>
