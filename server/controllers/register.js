@@ -10,18 +10,22 @@ exports.postRegister = async (req, res) => {
    if (takenEmail) {
       res.json({message: "Email has already been taken"})
    } else {
-      userData.password = await bcrypt.hash(req.body.password, 10)
-
-      const dbUser = await new user({
-         name: userData.name,
-         email: userData.email,
-         password: userData.password,
-         restock_notification: false,
-         is_guest_account: false,
-         is_blocked: false
-      })
-
-      dbUser.save()
-      res.json({message: 'Account has been created'})
+      if (userData.verifyPassword !== userData.password) {
+         res.json({message: "Passwords do not match"})
+      } else {
+         userData.password = await bcrypt.hash(req.body.password, 10)
+   
+         const dbUser = await new user({
+            name: userData.name,
+            email: userData.email,
+            password: userData.password,
+            restock_notification: false,
+            is_guest_account: false,
+            is_blocked: false
+         })
+   
+         dbUser.save()
+         res.json({message: 'Account has been created'})
+      }
    }
 }
