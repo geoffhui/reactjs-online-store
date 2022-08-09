@@ -23,7 +23,7 @@ const Register = () => {
       await axios.post('http://localhost:8080/register', user)
          .then(res => setCustomText(res.data.message))
 
-         // navigate('/')
+         navigate('/login')
    }
 
    return (
@@ -31,7 +31,7 @@ const Register = () => {
          <h3 className='container w-75 text-start mt-4'>Create An Account</h3>
          
 
-         <form className='container my-5 w-75 bg-color-0059a7 rounded-corners' autocomplete='on' onSubmit={event => handleRegister(event)}>
+         <form className='container my-5 w-75 bg-color-0059a7 rounded-corners' autoComplete='on' onSubmit={event => handleRegister(event)}>
             <div className='form-group'>
                <label className='mt-4 text-light'>Name *</label>
                <input 

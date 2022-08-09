@@ -1,10 +1,11 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { getProducts } from './functions/requests'
 import Home from './pages/Home';
 import Products from './pages/Products';
-import { getProducts } from './functions/requests'
 import Register from './pages/Register';
+import Login from './pages/Login';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/" element={ <Home /> } />
           <Route exact path="/products" element={ <Products products={ products }/> } />
           <Route exact path="/register" element={ <Register /> } />
+          <Route exact path="/login" element={ <Login /> } />
         </Routes>
       </Router>
     </div>
