@@ -29,7 +29,7 @@ exports.postLogin = async (req, res) => {
                            if (err)
                               return res.json({message: err})
                            return res.json({
-                              message: 'Success',
+                              message: 'Successfully Logged In',
                               token: "Bearer " + token
                            })
                         }
