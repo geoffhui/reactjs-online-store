@@ -6,6 +6,7 @@ const Register = () => {
    const [name, setName] = useState('')
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
+   const [verifyPassword, setVerifyPassword] = useState('')
    const [customText, setCustomText] = useState('')
    const navigate = useNavigate()
 
@@ -15,49 +16,75 @@ const Register = () => {
       const user = {
          name: name,
          email: email,
-         password: password
+         password: password,
+         verifyPassword: verifyPassword
       }
 
       await axios.post('http://localhost:8080/register', user)
          .then(res => setCustomText(res.data.message))
 
-      // navigate('/')
+         // navigate('/')
    }
 
    return (
       <div>
          <h3 className='container w-75 text-start mt-4'>Create An Account</h3>
          
-         <form className='container mt-5 w-75 bg-color-0059a7 rounded-corners' autocomplete='on' onSubmit={event => handleRegister(event)}>
-         <div className='form-group'>
-            <label className='mt-4 text-light'>Name *</label>
-            <input className='form-control mb-4' id='name' required type="text" value={ name } onChange={ e => setName(e.target.value) }/>
-         </div>
 
-         <div className='form-group'>
-            <label className='text-light'>Email *</label>
-            <input className='form-control mb-4' id='email' required type="email" value={ email } onChange={ e => setEmail(e.target.value) } />
-         </div>
+         <form className='container my-5 w-75 bg-color-0059a7 rounded-corners' autocomplete='on' onSubmit={event => handleRegister(event)}>
+            <div className='form-group'>
+               <label className='mt-4 text-light'>Name *</label>
+               <input 
+                  className='form-control mb-4' 
+                  id='name' 
+                  required 
+                  type="text" 
+                  value={ name } 
+                  onChange={ e => setName(e.target.value) }/>
+            </div>
 
-         <div className='form-group'>
-            <label className='text-light'>Password *</label>
-            <input 
-               className='form-control mb-4' 
-               required 
-               type="password" 
-               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-               title="Must contain at least one number, one uppercase letter, and lowercase letter, and at least 8 characters" 
-               value={ password } 
-               onChange={ e => setPassword(e.target.value) } />
-         </div>
 
-         <div className='form-group'>
-            <button className='btn bg-light mb-4' type='submit'>Register</button>
-            { customText !== '' ? 
-               <label className='form-text col-12 text-white mb-4'>{ customText }</label>
-               : null
-            }
-         </div>
+            <div className='form-group'>
+               <label className='text-light'>Email *</label>
+               <input 
+                  className='form-control mb-4' 
+                  id='email' 
+                  required 
+                  type="email" 
+                  value={ email } 
+                  onChange={ e => setEmail(e.target.value) } />
+            </div>
+
+            <div className='form-group'>
+               <label className='text-light'>Password *</label>
+               <input 
+                  className='form-control mb-4' 
+                  required 
+                  type="password" 
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                  title="Must contain at least one number, one uppercase letter, and lowercase letter, and at least 8 characters" 
+                  value={ password } 
+                  onChange={ e => setPassword(e.target.value) } />
+            </div>
+
+            <div className="form-group">
+               <label className='text-light'>Verify Password *</label>
+               <input 
+                  className='form-control mb-4' 
+                  required 
+                  type='password' 
+                  value={ verifyPassword } 
+                  onChange={ e => setVerifyPassword(e.target.value) }/>
+            </div>
+
+
+            <div className='form-group'>
+               <button className='btn bg-light mb-4' type='submit'>Register</button>
+               { customText !== '' ? 
+                  <label className='form-text col-12 text-white mb-4'>{ customText }</label>
+                  : null
+               }
+            </div>
          </form>
       </div>
    );
