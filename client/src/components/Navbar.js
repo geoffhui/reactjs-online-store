@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 import { FiMenu } from 'react-icons/fi';
+import { useState } from 'react';
 
 const Navbar = () => {
+   const [isLoggedIn, setIsLoggedIn] = useState(false)
+
    return (
       <div className='row m-auto py-3 bg-color-0059a7'>
          <div className='col-1 col-sm-1 col-md-1 col-lg-1 text-white'><FiMenu size='36px'/></div>

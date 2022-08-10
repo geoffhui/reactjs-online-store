@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import UserProfile from './pages/UserProfile';
 
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
           <Route exact path="/products" element={ <Products products={ products }/> } />
           <Route exact path="/register" element={ <Register /> } />
           <Route exact path="/login" element={ <Login /> } />
-          <Route exact path="/dashboard" element={ <Dashboard /> } />
+          <Route exact path="/profile" element={ <UserProfile /> } />
         </Routes>
       </Router>
     </div>

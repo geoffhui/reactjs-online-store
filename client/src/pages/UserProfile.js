@@ -1,4 +1,4 @@
-const Dashboard = () => {
+const UserProfile = () => {
    return (
       <div>
          <h3>Hello World</h3>
@@ -6,4 +6,4 @@ const Dashboard = () => {
    );
 }
  
-export default Dashboard;
+export default UserProfile;
