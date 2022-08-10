@@ -33,7 +33,6 @@ const Register = () => {
          <SecondaryNavBar />
 
          <h3 className='container w-75 text-start mt-5 mb-0'>Create An Account</h3>
-         
 
          <form className='container mt-3 mb-5 w-75 bg-color-0059a7 rounded-corners' autoComplete='on' onSubmit={event => handleRegister(event)}>
             <div className='form-group'>
@@ -46,7 +45,6 @@ const Register = () => {
                   value={ name } 
                   onChange={ e => setName(e.target.value) }/>
             </div>
-
 
             <div className='form-group'>
                <label className='text-light'>Email *</label>
@@ -80,7 +78,6 @@ const Register = () => {
                   value={ verifyPassword } 
                   onChange={ e => setVerifyPassword(e.target.value) }/>
             </div>
-
 
             <div className='form-group'>
                <button className='btn bg-light mb-2' type='submit'>Register</button>

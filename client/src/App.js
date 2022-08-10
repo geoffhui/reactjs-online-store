@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/products" element={ <Products products={ products }/> } />
           <Route exact path="/register" element={ <Register /> } />
           <Route exact path="/login" element={ <Login /> } />
+          <Route exact path="/dashboard" element={ <Dashboard /> } />
         </Routes>
       </Router>
     </div>
