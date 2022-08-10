@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
+import SecondaryNavBar from '../components/SecondaryNavBar'
+import Footer from '../components/Footer'
 
 const Login = () => {
    const [email, setEmail] = useState('')
@@ -34,9 +36,11 @@ const Login = () => {
 
    return ( 
       <div>
-         <h3 className='container w-75 text-start mt-4'>Login</h3>
+         <SecondaryNavBar />
 
-         <form className='container my-5 w-75 bg-color-0059a7 rounded-corners' autoComplete='on' onSubmit={event => handleLogin(event)}>
+         <h3 className='container w-75 text-start mt-5'>Login</h3>
+
+         <form className='container mt-3 mb-5 w-75 bg-color-0059a7 rounded-corners' autoComplete='on' onSubmit={event => handleLogin(event)}>
             <div className='form-group'>
                <label className='mt-4 text-light'>Email</label>
                <input 
@@ -66,6 +70,8 @@ const Login = () => {
 
             <a href="/register" className='form-text mb-4 text-light d-inline-block' >Don't have an account? Click here to register!</a>
          </form>
+
+         <Footer />
       </div>
    );
 }

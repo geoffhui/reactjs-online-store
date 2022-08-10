@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router'
 import React, { useState } from 'react'
 import axios from 'axios'
+import SecondaryNavBar from '../components/SecondaryNavBar'
+import Footer from '../components/Footer'
 
 const Register = () => {
    const [name, setName] = useState('')
@@ -28,10 +30,12 @@ const Register = () => {
 
    return (
       <div>
-         <h3 className='container w-75 text-start mt-4'>Create An Account</h3>
+         <SecondaryNavBar />
+
+         <h3 className='container w-75 text-start mt-5 mb-0'>Create An Account</h3>
          
 
-         <form className='container my-5 w-75 bg-color-0059a7 rounded-corners' autoComplete='on' onSubmit={event => handleRegister(event)}>
+         <form className='container mt-3 mb-5 w-75 bg-color-0059a7 rounded-corners' autoComplete='on' onSubmit={event => handleRegister(event)}>
             <div className='form-group'>
                <label className='mt-4 text-light'>Name *</label>
                <input 
@@ -88,6 +92,8 @@ const Register = () => {
 
             <a href="/login" className='form-text mb-4 text-light d-inline-block' >Already have an account? Click here to log in!</a>
          </form>
+
+         <Footer />
       </div>
    );
 }
