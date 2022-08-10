@@ -36,9 +36,15 @@ function verifyJWT(req, res, next) {
             })
          }
 
-         req.user = {}
-         req.user.id = decoded.id
-         req.user.email = decoded.email
+         req.user = {
+            id: decoded.id,
+            email: decoded.email,
+            name: decoded.name,
+            phone_number: decoded.phone_number,
+            restock_notification: decoded.restock_notification,
+            is_guest_account: decoded.is_guest_account,
+            is_blocked: decoded.is_blocked
+         }
          next()
       })
    } else {

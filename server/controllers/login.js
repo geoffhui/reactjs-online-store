@@ -19,7 +19,12 @@ exports.postLogin = async (req, res) => {
                   if (isCorrect) {
                      const payload = {
                         id: dbUser._id,
-                        email: dbUser.email
+                        email: dbUser.email,
+                        name: dbUser.name,
+                        phone_number: dbUser.phone_number,
+                        restock_notification: dbUser.restock_notification,
+                        is_guest_account: dbUser.is_guest_account,
+                        is_blocked: dbUser.is_blocked
                      }
                      jwt.sign(
                         payload,

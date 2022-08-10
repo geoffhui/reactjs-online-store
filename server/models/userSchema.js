@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
    name: {
       type: String,
-      required: true
+      required: true,
+      default: ''
    },
    email: {
       type: String,
@@ -16,7 +17,8 @@ const userSchema = new mongoose.Schema({
    },
    phone_number: {
       type: String,
-      required: false
+      required: false,
+      default: ''
    },
    restock_notification: {
       type: Boolean,
