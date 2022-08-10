@@ -29,7 +29,7 @@ const Login = () => {
             "x-access-token": localStorage.getItem("token")
          }
       })
-      .then(res => res.data.isLoggedIn ? navigate('/') : null)
+      // .then(res => res.data.isLoggedIn ? navigate('/') : null)
    }, [navigate])
 
    return ( 
@@ -65,12 +65,6 @@ const Login = () => {
             </div>
          </form>
       </div>
-      
-      // <form onSubmit={ event => handleLogin(event) }>
-      //    <input required type="email" value={ email } onChange= {e => setEmail(e.target.value) } />
-      //    <input required type="password" value={ password } onChange={ e => setPassword(e.target.value) }/>
-      //    <button type="submit">Login</button>
-      // </form>
    );
 }
  
