@@ -8,7 +8,6 @@
 
 
 /* ProductDisplay component */
-
 .product-display-container {
    margin: 0 auto;
    border: 1px solid black;
@@ -39,7 +38,6 @@
 
 
 /* Reusable styling */
-
 .fs-14px {
    font-size: 14px;
 }
