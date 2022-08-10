@@ -31,7 +31,7 @@ const Login = () => {
             "x-access-token": localStorage.getItem("token")
          }
       })
-      // .then(res => res.data.isLoggedIn ? navigate('/') : null)
+      .then(res => res.data.isLoggedIn ? navigate('/dashboard') : null)
    }, [navigate])
 
    return ( 
