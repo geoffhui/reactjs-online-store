@@ -79,12 +79,14 @@ const Register = () => {
 
 
             <div className='form-group'>
-               <button className='btn bg-light mb-4' type='submit'>Register</button>
+               <button className='btn bg-light mb-2' type='submit'>Register</button>
                { customText !== '' ? 
                   <label className='form-text col-12 text-white mb-4'>{ customText }</label>
                   : null
                }
             </div>
+
+            <a href="/login" className='form-text mb-4 text-light d-inline-block' >Already have an account? Click here to log in!</a>
          </form>
       </div>
    );
