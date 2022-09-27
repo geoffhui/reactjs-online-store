@@ -3,6 +3,19 @@ import { displaySalePrice, display_sale } from '../functions/functions'
 
 
 const ProductDisplay = ({ product }) => {
+   const onAddCart = (addedProduct) => {
+      const existingCart = localStorage.getItem('cart')
+      if (existingCart) {
+         let newCart = [existingCart]
+         const newItem = JSON.stringify(addedProduct)
+         newCart.push(newItem)
+         localStorage.setItem('cart', newCart)
+      } else {
+         const newItem = JSON.stringify(addedProduct)
+         localStorage.setItem('cart', [newItem])
+      }
+   }
+
    return (
       <div className="product-display-container text-center">
          <img src={`./${product.image_url}/${product._id}_1.jpg`} alt="img" className="img-fluid product_display_default_size my-2" />
@@ -27,6 +40,7 @@ const ProductDisplay = ({ product }) => {
                      <br />
                   </div>
             }
+            <button className="btn" onClick={e => onAddCart(product)}>Add To Cart</button>
          </div>
       </div>
    );
