@@ -37,11 +37,11 @@
 
 
 
-.cart-product-display {
-   margin: 0 auto;
-   border: 3px solid black;
+/* CartProduct Component */
+.cart-product-image {
+   max-width: 160px;
+   max-height: 160px;
 }
-
 
 
 /* Reusable styling */
