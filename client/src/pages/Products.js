@@ -13,7 +13,7 @@ const Products = ({ products }) => {
 
          <div className='row my-5' key={ uuidv4() }>
             { Object.keys(products).map((key, index) => {
-               return(
+               return (
                   <div className='col-xs-12 col-sm-6 col-md-4 col-lg-3 my-3 text-center' key={ uuidv4() }>
                      <ProductDisplay product={ products[key] } />
                   </div>

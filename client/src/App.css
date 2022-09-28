@@ -37,6 +37,13 @@
 
 
 
+.cart-product-display {
+   margin: 0 auto;
+   border: 3px solid black;
+}
+
+
+
 /* Reusable styling */
 .fs-14px {
    font-size: 14px;

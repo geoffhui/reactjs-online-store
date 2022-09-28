@@ -4,16 +4,11 @@ import { displaySalePrice, display_sale } from '../functions/functions'
 
 const ProductDisplay = ({ product }) => {
    const onAddCart = (addedProduct) => {
-      const existingCart = localStorage.getItem('cart')
-      if (existingCart) {
-         let newCart = [existingCart]
-         const newItem = JSON.stringify(addedProduct)
-         newCart.push(newItem)
-         localStorage.setItem('cart', newCart)
-      } else {
-         const newItem = JSON.stringify(addedProduct)
-         localStorage.setItem('cart', [newItem])
-      }
+      // localStorage.removeItem('cart')
+
+      let cartProducts = JSON.parse(localStorage.getItem('cart') || "[]")
+      cartProducts.push(addedProduct)
+      localStorage.setItem('cart', JSON.stringify(cartProducts))
    }
 
    return (
