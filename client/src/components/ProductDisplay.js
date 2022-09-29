@@ -30,6 +30,10 @@ const ProductDisplay = ({ product }) => {
          cartProducts.map(item => {
             if (item._id === productCopy._id) {
                item.quantity_in_cart = item.quantity_in_cart + 1
+               if (item.quantity_in_cart > item.quantity) {
+                  item.quantity_in_cart = item.quantity
+                  console.log('exceeded quantity')
+               }
                localStorage.setItem('cart', JSON.stringify(cartProducts))
                exists = true
                return
