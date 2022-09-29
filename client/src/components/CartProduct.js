@@ -1,7 +1,18 @@
 import { displaySalePrice } from '../functions/functions'
 import { BsTrash } from 'react-icons/bs'
+import { useState } from 'react';
 
 const CartProduct = ({ product }) => {
+   const [productQuantity, setProductQuantity] = useState(0)
+
+   const onClickMinus = () => {
+
+   }
+
+   const onClickPlus = () => {
+
+   }
+
    return (  
       <div className='row my-5 justify-content-center text-center'>
          <div className='col-2 '>
@@ -12,9 +23,9 @@ const CartProduct = ({ product }) => {
 
          <div className="col-2">
             <div className='row'>
-            <div className="col-4">-</div>
-            <div className="col-4">1</div>
-            <div className="col-4">+</div>
+            <button className="col-4 btn btn-secondary" onClick={ onClickMinus() }>-</button>
+            <div className="col-4">{ productQuantity }</div>
+            <button className="col-4 btn btn-secondary" onClick={ onClickPlus() }>+</button>
             </div>
          </div>
 

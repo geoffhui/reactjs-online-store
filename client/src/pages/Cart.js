@@ -16,13 +16,15 @@ const Cart = () => {
       cart.map(item => {
          if (item.is_on_sale) {
             let salePrice = displaySalePrice(item.price, item.discount_type, item.discount_value).replace('$', '')
-            let convertedSalePrice = new Number(parseFloat(salePrice)).toFixed(2)
-            finalPrice = new Number(parseFloat(finalPrice) + parseFloat(convertedSalePrice)).toFixed(2)
+            let convertedSalePrice = Number(parseFloat(salePrice)).toFixed(2)
+            finalPrice = Number(parseFloat(finalPrice) + parseFloat(convertedSalePrice)).toFixed(2)
          } else {
-            let convertedProductPrice = new Number(parseFloat(item.price)).toFixed(2)
-            finalPrice = new Number(parseFloat(finalPrice) + parseFloat(convertedProductPrice)).toFixed(2)
+            let convertedProductPrice = Number(parseFloat(item.price)).toFixed(2)
+            finalPrice = Number(parseFloat(finalPrice) + parseFloat(convertedProductPrice)).toFixed(2)
          }
       })
+
+      localStorage.setItem('cartTotalPrice', finalPrice)
       setTotalPrice(finalPrice)
    }
 

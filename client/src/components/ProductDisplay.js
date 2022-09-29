@@ -3,12 +3,43 @@ import { displaySalePrice, display_sale } from '../functions/functions'
 
 
 const ProductDisplay = ({ product }) => {
+   var productCopy = {
+      discount_type: product.discount_type,
+      discount_value: product.discount_value,
+      image_url: product.image_url,
+      is_on_sale: product.is_on_sale,
+      price: product.price,
+      product_name: product.product_name,
+      product_sku: product.product_sku,
+      quantity: product.quantity,
+      _id: product._id,
+      quantity_in_cart: 1
+   }
+
    const onAddCart = (addedProduct) => {
       // localStorage.removeItem('cart')
 
+      let exists = false
+
       let cartProducts = JSON.parse(localStorage.getItem('cart') || "[]")
-      cartProducts.push(addedProduct)
-      localStorage.setItem('cart', JSON.stringify(cartProducts))
+
+      if (cartProducts.length === 0) {
+         cartProducts.push(productCopy)
+         localStorage.setItem('cart', JSON.stringify(cartProducts))
+      } else {
+         cartProducts.map(item => {
+            if (item._id === productCopy._id) {
+               item.quantity_in_cart = item.quantity_in_cart + 1
+               localStorage.setItem('cart', JSON.stringify(cartProducts))
+               exists = true
+               return
+            }
+         })
+         if (exists === false) {
+            cartProducts.push(productCopy)
+            localStorage.setItem('cart', JSON.stringify(cartProducts))
+         }
+      }
    }
 
    return (
