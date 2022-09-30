@@ -108,7 +108,7 @@ const CartProduct = ({ product }) => {
          }
 
          <div className='col-2'>
-            <BsTrash onClick={ onClickDelete }/>
+            <BsTrash className='cursor-pointer' onClick={ onClickDelete }/>
          </div>
       </div>
    );
