@@ -9,7 +9,7 @@ const CartProduct = ({ product }) => {
    const onClickMinus = () => {
       cartProducts.map(item => {
          if (item._id === product._id) {
-            item.quantity_in_cart = item.quantity_in_cart - 1
+            item.quantity_in_cart = parseInt(item.quantity_in_cart) - 1
             if (item.quantity_in_cart <= 0) {
                item.quantity_in_cart = 0
             }
@@ -43,9 +43,26 @@ const CartProduct = ({ product }) => {
    const updateCartProductQuantity = () => {
       cartProducts.map(item => {
          if (item._id === product._id) {
+            if (quantity === '' || quantity < 0) {
+               console.log(quantity)
+               setQuantity(0)
+               item.quantity_in_cart = 0
+               product.quantity_in_cart = 0
+               localStorage.setItem('cart', JSON.stringify(cartProducts))
+               window.location.reload(true)
+               return
+            }
             if (item.quantity >= quantity) {
                item.quantity_in_cart = quantity
                product.quantity_in_cart = quantity
+               localStorage.setItem('cart', JSON.stringify(cartProducts))
+               window.location.reload(true)
+               return
+            }
+            if (item.quantity <= quantity) {
+               setQuantity(item.quantity)
+               item.quantity_in_cart = item.quantity
+               product.quantity_in_cart = item.quantity
                localStorage.setItem('cart', JSON.stringify(cartProducts))
                window.location.reload(true)
                return
@@ -71,7 +88,6 @@ const CartProduct = ({ product }) => {
                      type="number" 
                      autoComplete='off' 
                      value={ quantity }
-                     placeholder={ quantity } 
                      onChange={ (e) => setQuantity(e.target.value) }
                      onBlur={ updateCartProductQuantity }
                   />
