@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 const CartProduct = ({ product }) => {
    const [cartProducts, setCartProducts] = useState(JSON.parse(localStorage.getItem('cart')))
+   const [quantity, setQuantity] = useState(product.quantity_in_cart)
 
    const onClickMinus = () => {
       cartProducts.map(item => {
@@ -22,7 +23,7 @@ const CartProduct = ({ product }) => {
    const onClickPlus = () => {
       cartProducts.map(item => {
          if (item._id === product._id) {
-            item.quantity_in_cart = item.quantity_in_cart + 1
+            item.quantity_in_cart = parseInt(item.quantity_in_cart) + 1
             if (item.quantity_in_cart >= item.quantity) {
                item.quantity_in_cart = item.quantity
             }
@@ -39,6 +40,20 @@ const CartProduct = ({ product }) => {
       window.location.reload(true)
    }
 
+   const updateCartProductQuantity = () => {
+      cartProducts.map(item => {
+         if (item._id === product._id) {
+            if (item.quantity >= quantity) {
+               item.quantity_in_cart = quantity
+               product.quantity_in_cart = quantity
+               localStorage.setItem('cart', JSON.stringify(cartProducts))
+               window.location.reload(true)
+               return
+            }
+         }
+      })
+   }
+
    return (  
       <div className='row my-5 justify-content-center text-center'>
          <div className='col-2 '>
@@ -49,9 +64,19 @@ const CartProduct = ({ product }) => {
 
          <div className="col-2">
             <div className='row'>
-            <button className="col-4 btn btn-secondary" onClick={ onClickMinus }>-</button>
-            <div className="col-4">{ product.quantity_in_cart }</div>
-            <button className="col-4 btn btn-secondary" onClick={ onClickPlus }>+</button>
+               <div className="input-group">
+                  <button className="col-3 btn btn-secondary" onClick={ onClickMinus }>-</button>
+                  <input 
+                     className='col-6 form-control text-center' 
+                     type="number" 
+                     autoComplete='off' 
+                     value={ quantity }
+                     placeholder={ quantity } 
+                     onChange={ (e) => setQuantity(e.target.value) }
+                     onBlur={ updateCartProductQuantity }
+                  />
+                  <button className="col-3 btn btn-secondary" onClick={ onClickPlus }>+</button>
+               </div>
             </div>
          </div>
 
