@@ -16,12 +16,9 @@ const ProductDisplay = ({ product }) => {
       quantity_in_cart: 1
    }
 
-   const onAddCart = (addedProduct) => {
-      // localStorage.removeItem('cart')
-
-      let exists = false
-
+   const onAddCart = () => {
       let cartProducts = JSON.parse(localStorage.getItem('cart') || "[]")
+      let exists = false
 
       if (cartProducts.length === 0) {
          cartProducts.push(productCopy)
@@ -32,7 +29,6 @@ const ProductDisplay = ({ product }) => {
                item.quantity_in_cart = item.quantity_in_cart + 1
                if (item.quantity_in_cart > item.quantity) {
                   item.quantity_in_cart = item.quantity
-                  console.log('exceeded quantity')
                }
                localStorage.setItem('cart', JSON.stringify(cartProducts))
                exists = true
@@ -70,7 +66,7 @@ const ProductDisplay = ({ product }) => {
                      <br />
                   </div>
             }
-            <button className="btn" onClick={e => onAddCart(product)}>Add To Cart</button>
+            <button className="btn" onClick={e => onAddCart()}>Add To Cart</button>
          </div>
       </div>
    );

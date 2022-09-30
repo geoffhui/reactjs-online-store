@@ -1,16 +1,42 @@
 import { displaySalePrice } from '../functions/functions'
 import { BsTrash } from 'react-icons/bs'
-import { useState } from 'react';
+import { useState } from 'react'
 
 const CartProduct = ({ product }) => {
-   const [productQuantity, setProductQuantity] = useState(0)
+   const [cartProducts, setCartProducts] = useState(JSON.parse(localStorage.getItem('cart')))
 
    const onClickMinus = () => {
-
+      cartProducts.map(item => {
+         if (item._id === product._id) {
+            item.quantity_in_cart = item.quantity_in_cart - 1
+            if (item.quantity_in_cart <= 0) {
+               item.quantity_in_cart = 0
+            }
+            localStorage.setItem('cart', JSON.stringify(cartProducts))
+            window.location.reload(true)
+            return
+         }
+      })
    }
 
    const onClickPlus = () => {
+      cartProducts.map(item => {
+         if (item._id === product._id) {
+            item.quantity_in_cart = item.quantity_in_cart + 1
+            if (item.quantity_in_cart >= item.quantity) {
+               item.quantity_in_cart = item.quantity
+            }
+            localStorage.setItem('cart', JSON.stringify(cartProducts))
+            window.location.reload(true)
+            return
+         }
+      })
+   }
 
+   const onClickDelete = () => {
+      let updatedCartProducts = cartProducts.filter(item => item._id !== product._id)
+      localStorage.setItem('cart', JSON.stringify(updatedCartProducts))
+      window.location.reload(true)
    }
 
    return (  
@@ -23,9 +49,9 @@ const CartProduct = ({ product }) => {
 
          <div className="col-2">
             <div className='row'>
-            <button className="col-4 btn btn-secondary" onClick={ onClickMinus() }>-</button>
-            <div className="col-4">{ productQuantity }</div>
-            <button className="col-4 btn btn-secondary" onClick={ onClickPlus() }>+</button>
+            <button className="col-4 btn btn-secondary" onClick={ onClickMinus }>-</button>
+            <div className="col-4">{ product.quantity_in_cart }</div>
+            <button className="col-4 btn btn-secondary" onClick={ onClickPlus }>+</button>
             </div>
          </div>
 
@@ -41,7 +67,7 @@ const CartProduct = ({ product }) => {
          }
 
          <div className='col-2'>
-            <BsTrash className=''/>
+            <BsTrash onClick={ onClickDelete }/>
          </div>
       </div>
    );

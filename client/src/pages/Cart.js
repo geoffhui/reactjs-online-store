@@ -1,9 +1,8 @@
 import CartProduct from "../components/CartProduct";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import { useEffect } from "react";
 import { displaySalePrice } from '../functions/functions'
 
 const Cart = () => {
@@ -17,10 +16,10 @@ const Cart = () => {
          if (item.is_on_sale) {
             let salePrice = displaySalePrice(item.price, item.discount_type, item.discount_value).replace('$', '')
             let convertedSalePrice = Number(parseFloat(salePrice)).toFixed(2)
-            finalPrice = Number(parseFloat(finalPrice) + parseFloat(convertedSalePrice)).toFixed(2)
+            finalPrice = Number(parseFloat(finalPrice) + parseFloat(convertedSalePrice) * item.quantity_in_cart).toFixed(2)
          } else {
             let convertedProductPrice = Number(parseFloat(item.price)).toFixed(2)
-            finalPrice = Number(parseFloat(finalPrice) + parseFloat(convertedProductPrice)).toFixed(2)
+            finalPrice = Number(parseFloat(finalPrice) + parseFloat(convertedProductPrice) * item.quantity_in_cart).toFixed(2)
          }
       })
 
@@ -60,7 +59,7 @@ const Cart = () => {
             <div className="col-2"></div>
             <div className="col-3"></div>
             <div className="col-2">Total</div>
-            <div className="col-2">${totalPrice}</div>
+            <div className="col-2">${ totalPrice }</div>
             <div className="col-2"></div>
          </div>
 
